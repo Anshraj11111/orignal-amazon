@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .navbar {
+            height: 60px;
+            background-color: #131921; /* Amazon's dark gray */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .logo {
+            background-image: url("https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 50px;
+            width: 100px;
+            background-color: #ddd;
+        }
+        .nav-search {
+            display: flex;
+            justify-content: space-between;
+            background-color: orange;
+            width: 630px;
+            height: 40px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .search-list {
+            background-color: #efe6e6;
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        .search-input {
+            flex: 1;
+            font-size: larger;
+            border: none;
+        }
+        .search-icon {
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: larger;
+            color: #0c0d0d;
+            border-radius: 0 5px 5px 0;
+        }
+        .nav-signin a {
+            text-decoration: none;
+            color: white; /* Changed to white for better visibility on dark background */
+        }
+        .nav-signin a:hover {
+            text-decoration: underline;
+        }
+        .nav-second {
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .nav-cart i {
+            font-size: 30px;
+        }
+        .nav-cart {
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .cart-header {
+            padding: 20px;
+            background-color: #f1eded;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .cart-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .cart-header p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .cart-items {
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background-color: #f7eded;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .cart-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-details h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .cart-item-details .price {
+            font-size: 1.1rem;
+            color: #B12704;
+            margin-bottom: 10px;
+        }
+        .cart-item-details .quantity {
+            margin-bottom: 10px;
+        }
+        .cart-item-details .remove-button {
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            padding: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .cart-item-details .remove-button:hover {
+            background-color: #e1a700;
+        }
+        .cart-summary {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #f5efef;
+            border-radius: 5px;
+        }
+        .cart-summary h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .cart-summary .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cart-summary button {
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            padding: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+        .cart-summary button:hover {
+            background-color: #e1a700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <div class="logo"></div>
+            </div>
+            <div class="nav-search">
+                <select class="search-list">
+                    <option>All</option>
+                </select>
+                <input placeholder="Search Amazon" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="nav-signin">
+                <a href="amazonloginpage.html">
+                    <p><span>Hello, sign in</span></p>
+                </a>
+                <p class="nav-second">Account & List</p>
+            </div>
+            <div class="nav-cart">
+                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+    </header>
+
+    <div class="cart-header">
+        <h1>Your Shopping Cart</h1>
+        <p>Items in your cart will be saved for 30 days. You can review your cart before checkout.</p>
+    </div>
+
+    <div class="cart-items">
+        <div class="cart-item">
+            <img src="https://m.media-amazon.com/images/I/61gwPySAwAL._AC_UL480_FMwebp_QL65_.jpg">
+            <div class="cart-item-details">
+                <h2>boAt Newly Launched Airdopes Alpha with 35HRS Total Playback</h2>
+                <div class="price">₹1,199</div>
+                <div class="quantity">
+                    <label for="quantity">Quantity: </label>
+                    <select id="quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button class="remove-button">Remove</button>
+            </div>
+        </div>
+        <!-- Repeat the .cart-item div for additional items -->
+    </div>
+
+    <div class="cart-summary">
+        <h2>Cart Summary</h2>
+        <div class="total">Subtotal: ₹1,199</div>
+        <button>Proceed to Checkout</button>
+    </div>
+</body>
+</html>
